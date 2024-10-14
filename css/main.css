@@ -1,105 +1,244 @@
-/* style file practice
-
-==============================
-
-00: css variable
-01: color
-02: typography
-
-==============================
-*/
-
-/* 00 css variable */
 :root{
-    --body-color: hsla(359, 39%, 35%, 0.8);
+    --body-color: hsla(359,39%,35%,0.8);
     --page-color: hsla(30,32%,88%,0.9);
-    --sidebar-color: rgb(191, 164, 99);
-    --font-color: rgb(14, 37, 141); 
-    --h1-color: rgb(233, 117, 117);
-
-    /** layout variables **/
+    --sidebar-color: rgb(191,164,99);
+    
+    --font-color:rgb(2, 17, 22);
+    
     --page-top-position: 85%;
-    --page-width: 20%;
+    --page-width: 30%;
     --bottom-bar-height: 15vh;
-    --bottom-bar-color: hsla(27, 43% 55%, 1);
-
-
+    --bottom-bar-color: hsla(27,43%,55%,1);
 }
 
 
-
-/* color */
-body{
+ body{
     background-color: var(--body-color);
-}
-
-#zen-intro{
+ }
+ #zen-intro{
     background-color: var(--page-color);
     color: var(--font-color);
-}
-
-#zen-supporting{
+ }
+ #zen-supporting{
     background-color: var(--page-color);
-}
-
+ }
 .sidebar{
     background-color: var(--sidebar-color);
 }
-h1{
-    background-color: var(--h1-color);
-}
 
-
-/* 02 Layout */
-div.explanation, div.requirements, div.benefits, div.participation{
+div.explanation, div.requirements,div.benefits,div.participation{
     position: fixed;
-    width:  var(--page-width);
+    width: var(--page-width);
     top: var(--page-top-position);
     background-image: url(../img/newspaper3.jpg);
-    
+    transition-property: all 4s ease-in-out;
 }
+
 
 div.explanation{
-    left:0%;
-
+    left:1%;
 }
+
 div.requirements{
-    left: 25%;
+    left: 18vw;
 }
 
 div.benefits{
-    left: 50%;
+    left: 36vw;
 }
 
 div.participation{
-    left: 75%;
+    left: 54vw;
 }
-
 aside.sidebar{
     position: absolute;
-    top: 20%;
+    top:20%;
+    right: 0;
+   
     width: 20%;
-    height: 100%;
-
+    height:100%;
 }
+
 section.intro{
+   
     position: fixed;
     bottom: 5%;
-    left: 30%;
+    left:30%;
     width: 30%;
-    height: 80%;
-    background-image: url(../img/newspaperimage3);
-    
+    height:80%;
+    background-image:url(../img/newspaper3.jpg) ;
+    padding:2%;
+    border: 2px dashed rgb(39, 34, 34);
+    margin-left: 10px;
+    text-indent: 1px;  
+    transform: rotate(-10deg) translate(-100px, 0);
 }
 
 div.extra2{
-    position:fixed;
-    bottom: 0;
+    position: fixed;
+    bottom:0;
     left: 0;
     width: 100%;
-    height: var(--bottom-bar-height);
+    height:var(--bottom-bar-height);
     background-color: var(--bottom-bar-color);
+}
+
+div.extra1{
+    position: fixed;
+    bottom: 5%;
+    left:20%;
+    width: 30%;
+    height:80%;
+    background-image: url(../img/newspaper2.jpg);
+    z-index: -1;
+    translate: rotate(15deg) translate(200px, -100px);
+}
+
+
+div.explanation h3, div.requirements h3,div.benefits h3,div.participation h3{
+    margin-top: -5%;
+    width: 12vw;
+    background-color: bisque;
+}
+
+
+
+
+@font-face {
+    font-family: 'myfont' ;
+    src: url(../fonts/chunkfive.eot);
+}
+
+header h1{
+    font-family: 'myfont',sans-serif;
+    
+    font-size: 1.25em;
+    letter-spacing: normal;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+header h2{
+    
+    font-family: 'Ranchers',cursive;
+}
+
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+
+#design-selection h3{
+    visibility: hidden;
+}
+
+#design-archives{
+    display: none;
+}
+
+a:hover{
+    font-size: 1.5em;
+}
+
+div.explanation:active{
+    top:15vh;
+    height:90vh;
 
 }
+div.requirements:active{
+    top:15vh;
+    height:90vh;
+}
+div.benefits:active{
+    top:15vh;
+    height:90vh;
+}
+div.participation:active{
+    top:15vh;
+    height:90vh;
+}
+
+p::first-letter{
+    font-size: 1.5em;
+    font-style: italic;
+}
+p:nth-child(2n){
+    background-color: aquamarine;
+}
+p:nth-child(2n+1){
+    background-color: rgb(181, 177, 177);
+}
+div.explanation h3, div.requirements h3,div.benefits h3,div.participation h3{
+    border-top-left-radius: 20px;
+    border-top: solid red 1px;
+    padding-left: 5px;
+
+}
+
+ul{
+    list-style-image: url(../img/star.png);
+
+}
+
+section.intro h3 ~p{
+    opacity: 1;
+    transition: all 3s ease-in-out;
+}
+
+section.intro h3:hover ~p{
+    transform: scale(0,2);
+    opacity: 0;;
+}
+
+@keyframes backandforth{
+    from{transform: translate(-400px, 0);}
+    30%{transform: translate(-300px, 0);}
+    50%{transform: translate(300px, 0);}
+    70%{transform: translate(500px, 0);}
+    90%{transform: translate(600px, 0);}
+
+}
+
+footer{
+    position: fixed;
+    bottom: 1vh;
+    left: 50%;
+    animation: 10s ease-in-out 2s alternate infinite backandforth;
+
+}
+
+aside.sidebar{
+    clip-path:polygon(0 0, 0 80%, 50% 70%, 100% 80%, 100% 0);
+}
+
+
+.one{
+    grid-column: 2/4;
+    grid-row: 2/4;
+  }
+  
+  .two{
+    grid-column: 1/ 4;
+    grid-row: 1/2;
+  }
+  .three{
+    grid-column: 1/2;
+    grid-row: 2/4;
+  }
+  .four{
+    grid-column: 4/5;
+    grid-row: 1/3;
+  }
+  
+  .five{
+    grid-column: 1/5;
+    grid-row: 4/5;
+  }
+  .six{
+    grid-column: 3/4;
+    grid-row: 3/5;
+  }
 
 
